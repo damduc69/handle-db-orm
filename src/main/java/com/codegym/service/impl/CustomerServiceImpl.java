@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
         for (Customer entity: customerEntities) {
             CustomerNamesDto dto = new CustomerNamesDto();
             dto.setId(entity.getId());
-//            dto.setId(entity.getName());
+            dto.setName(entity.getFullName());
             customerNamesDtos.add(dto);
         }
         return customerNamesDtos;

@@ -31,28 +31,39 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public List<Customer> selectAll() {
-        String hql = "SELECT c FROM Customer AS c"; //sql: select * from customers c;
+        String hql = "SELECT c FROM Customer AS c";
         TypedQuery<Customer> query = entityManager.createQuery(hql, Customer.class);
         return query.getResultList();
     }
 
     @Override
     public Customer select(Integer id) {
-        return null;
+        return entityManager.find(Customer.class, id);
     }
 
     @Override
     public Customer insert(Customer customer) {
-        return null;
+        entityManager.persist(customer);
+        return customer;
     }
 
     @Override
     public Customer update(Integer id, Customer customer) {
-        return null;
+        Customer existingCustomer = entityManager.find(Customer.class, id);
+        if (existingCustomer != null) {
+            existingCustomer.setFullName(customer.getFullName());
+            existingCustomer.setEmail(customer.getEmail());
+            existingCustomer.setAddress(customer.getAddress());
+            entityManager.merge(existingCustomer);
+        }
+        return existingCustomer;
     }
 
     @Override
     public void delete(Integer id) {
-
+        Customer customer = entityManager.find(Customer.class, id);
+        if (customer != null) {
+            entityManager.remove(customer);
+        }
     }
 }

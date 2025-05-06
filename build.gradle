@@ -29,6 +29,8 @@ dependencies {
   implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.23'
   implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.1.0.RC2'
   implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.1.0'
+  implementation 'org.slf4j:slf4j-api:1.7.32'
+  implementation 'org.slf4j:slf4j-simple:1.7.32'
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

@@ -15,7 +15,7 @@ public class CustomerController {
 
     @GetMapping("/list")
     public ModelAndView showCustomerList() {
-        ModelAndView modelAndView = new ModelAndView("/customer/list");
+        ModelAndView modelAndView = new ModelAndView("/customer/index");
         modelAndView.addObject("customers", customerService.findAll());
         return modelAndView;
     }

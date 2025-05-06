@@ -46,4 +46,5 @@ public class AppConfiguration implements ApplicationContextAware {
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
     }
+
 }
